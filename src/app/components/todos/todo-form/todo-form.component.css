@@ -1,0 +1,57 @@
+
+.bodyTodo {
+  width: 550px;
+  height: 150px;
+  display: flex;
+  border: 5px solid #3ADC77;
+  border-radius: 10px;
+  justify-content: center;
+  margin-top:10px ;
+  box-shadow: 5px 5px grey;
+}
+.bttnCheck {
+  display: flex;
+  justify-content: center;
+  width: 90px;
+  margin: 25px 5px 2px 2px
+}
+.bttnCheck input[type=checkbox] {
+  width: 50px;
+}
+
+.bttnCheck input:checked {
+  width: 50px;
+  background-color: #3ADC77;
+}
+
+.todo {
+  width: 400px;
+  height: 70px;
+  margin: 45px 5px 2px 2px;
+}
+
+.todo
+ h2 {
+  font-size: 30px ;
+  margin: 20px 20px 20px 20px;
+ }
+
+ .bttns {
+  width: 150px;
+  height: 100px;
+  margin: 70px 10px 10px 20px;
+ }
+
+ .bttns button {
+    width: 100%;
+ }
+ .checkbox {
+  width: 550px;
+  height: 150px;
+  display: flex;
+  border-radius: 10px;
+  justify-content: center;
+  margin-top:10px ;
+  box-shadow: 5px 5px grey;
+  border: 5px red dotted;
+ }

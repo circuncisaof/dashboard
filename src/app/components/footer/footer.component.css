@@ -1,0 +1,15 @@
+.footer{
+  display: flex;
+ }
+.footer {
+  background-color: #3ADC77;
+  width: 100%;
+  margin: 30px 20px 20px 20px;
+}
+
+.footer h1{
+  display: inline;
+  font-family: "Comic Sans MS", "Comic Sans", cursive;
+  color: #3ADC77;;
+
+ }

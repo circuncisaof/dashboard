@@ -1,0 +1,14 @@
+<div class="bodyTodo">
+  <section>
+    <div class="todo">
+      <h2>Todo:</h2>
+      <div class="divInput">
+        <input [ngModel]="todo" (ngModelChange)="todo=$event" type="text">
+      </div>
+    </div>
+    <div class="bttn">
+      <button (click)="save()">Save</button>
+    </div>
+  </section>
+
+</div>
