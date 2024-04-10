@@ -1,6 +1,6 @@
 import { HttpClient, HttpErrorResponse } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import { Observable, catchError, retry, throwError } from "rxjs";
+import { Observable, Subject, catchError, retry, tap, throwError } from "rxjs";
 import { TodoI } from "../interface/TodoI";
 import { ITodo } from "../interface/todo";
 
@@ -13,6 +13,10 @@ export class ApiService
   readonly url = 'http://localhost:3000/api/v1/todo'
   constructor(private http: HttpClient){}
 
+  private _reload$ = new Subject<void>()
+  get reload() {
+    return this._reload$;
+  }
 
   get(id:string):Observable<ITodo>{
     return this.http.get<ITodo>(`${this.url}/${id}`);
@@ -20,9 +24,13 @@ export class ApiService
 
   getAll():Observable<ITodo[]>{
     const allTodo = this.http.get<ITodo[]>(this.url)
-    .pipe(
+    .pipe(tap
+      (()=>{
+        this._reload$.next()
+      }),
       retry(2),
       catchError(this.handleError)
+
     );
     return allTodo
 
