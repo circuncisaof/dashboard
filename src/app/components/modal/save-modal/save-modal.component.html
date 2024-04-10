@@ -1,0 +1,8 @@
+<ng-container *ngIf="seeModa">
+  <div class="modal"><div class="bttnClose">
+    <button (click)="toggle()">X</button>
+  </div>
+    <ng-content></ng-content>
+  </div>
+  <div (click)="toggle()" class="overlay"></div>
+</ng-container>

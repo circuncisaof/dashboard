@@ -1,0 +1,15 @@
+<div class="bodyTodo">
+
+  <div class="title">
+    <h1>
+      {{todo_title}}
+    </h1>
+  </div>
+  <div class="todo">
+    <input type="text"[(ngModel)] = "data.todo">
+  </div>
+  <div class="bttnDiv">
+    <button type="submit" (click)="save()" class="btn-primario">Salvar</button>
+  </div>
+
+</div>

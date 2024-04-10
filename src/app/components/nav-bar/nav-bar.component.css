@@ -1,5 +1,6 @@
 .NavBarTodo{
   display: flex;
+  background-color: #3ADC77;
  }
 .divTitule {
   width: 100%;
@@ -9,6 +10,6 @@
 .divTitule h1{
   display: inline;
   font-family: "Comic Sans MS", "Comic Sans", cursive;
-  color: #3ADC77;;
+  color: #F0EBE9;
 
  }

@@ -1,16 +1,22 @@
-<div class="bodyTodo">
-  <div class="bttnCheck">
-    <input type="checkbox">
-  </div>
+<div class="bodyTodo" >
   <div class="todo">
-    <h2>{{todos}}</h2>
+    <h2>{{todo}}</h2>
   </div>
   <div class="bttns">
     <div class="bttn">
-      <button (click)="update()">Update</button>
+      <button (click)="modalupdate.updateToggleId(id)">Update</button>
+    </div>
+    <div class="bttn">
+      <button (click)="
+      modal.deletetoggleid(id)
+      ">Delete</button>
     </div>
   </div>
 
+    <app-delete-modal #modal>
+      <app-todo-delete/>
+    </app-delete-modal>
+    <app-update-modal #modalupdate>
+      <app-todo-update/>
+    </app-update-modal>
 </div>
-
-

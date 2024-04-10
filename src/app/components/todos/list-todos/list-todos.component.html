@@ -1,8 +1,5 @@
 <div class="bodyListTodo">
-  <div class="divBody">
-    <app-todo-form></app-todo-form>
-
-    <app-todo-checked></app-todo-checked>
+  <div class="divBody" *ngFor="let todo  of todos">
+    <app-todo-form [todo]="todo.todo" [id]="todo.id" (reload)="getAll()" />
   </div>
-
 </div>

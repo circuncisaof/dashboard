@@ -1,5 +1,8 @@
 .bodyListTodo{
-  width: 100%;
+  width: 100%
+}
+
+.divBody{
   display: flex;
   justify-content: center;
 }

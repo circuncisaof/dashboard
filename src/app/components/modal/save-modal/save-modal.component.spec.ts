@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TodoFormComponent } from './todo-form.component';
+import { SaveModalComponent } from './save-modal.component';
 
-describe('TodoFormComponent', () => {
-  let component: TodoFormComponent;
-  let fixture: ComponentFixture<TodoFormComponent>;
+describe('SaveModalComponent', () => {
+  let component: SaveModalComponent;
+  let fixture: ComponentFixture<SaveModalComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [TodoFormComponent]
+      declarations: [SaveModalComponent]
     });
-    fixture = TestBed.createComponent(TodoFormComponent);
+    fixture = TestBed.createComponent(SaveModalComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

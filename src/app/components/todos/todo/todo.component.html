@@ -1,14 +1,8 @@
 <div class="bodyTodo">
-  <section>
-    <div class="todo">
-      <h2>Todo:</h2>
-      <div class="divInput">
-        <input [ngModel]="todo" (ngModelChange)="todo=$event" type="text">
-      </div>
-    </div>
     <div class="bttn">
-      <button (click)="save()">Save</button>
+      <button (click)="modal.toggle()">Criar</button>
     </div>
-  </section>
-
+    <app-save-modal #modal>
+      <app-todo-designer/>
+    </app-save-modal>
 </div>

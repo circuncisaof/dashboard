@@ -1,30 +1,65 @@
-// import { HttpClient } from "@angular/common/http";
-// import { Observable } from "rxjs";
-// import { ITodo } from "../interface/todo";
+import { HttpClient, HttpErrorResponse } from "@angular/common/http";
+import { Injectable } from "@angular/core";
+import { Observable, catchError, retry, throwError } from "rxjs";
+import { TodoI } from "../interface/TodoI";
+import { ITodo } from "../interface/todo";
 
-// export class ApiService
-// {
-//   readonly url = 'https:localhost:300/api/v1/'
-//   constructor(private http: HttpClient){}
+@Injectable({
+  providedIn: 'root'
+})
 
-//   get():Observable<ITodo[]>{
-//     return this.http.get<[]>(this.url)
+export class ApiService
+{
+  readonly url = 'http://localhost:3000/api/v1/todo'
+  constructor(private http: HttpClient){}
 
-//   }
 
-//   // getAll():Observable<>[]{
+  get(id:string):Observable<ITodo>{
+    return this.http.get<ITodo>(`${this.url}/${id}`);
+  }
 
-//   // }
+  getAll():Observable<ITodo[]>{
+    const allTodo = this.http.get<ITodo[]>(this.url)
+    .pipe(
+      retry(2),
+      catchError(this.handleError)
+    );
+    return allTodo
 
-//   // get():Observable<>[]{
+  }
 
-//   // }
+  save(data:TodoI):Observable<ITodo>{
+    return this.http.post<ITodo>(this.url,data)
+  }
 
-//   // update():Observable<>[]{
+  update(id:string,todo: ITodo):Observable<ITodo>{
+    console.log(id, todo.todo)
+    const data = this.http.patch<ITodo>(`${this.url}/${id}`, todo).pipe(
+      retry(1),
+      catchError(this.handleError)
+    )
+    return data
+  }
 
-//   // }
+  delete(id:string){
+    return this.http.delete(`${this.url}/${id}`)
+    .pipe(
+      retry(1),
+      catchError(this.handleError)
+    );
+  }
 
-//   // delete():Observable<>[]{
 
-//   // }
-// }
+  handleError(error: HttpErrorResponse) {
+    let errorMessage = '';
+    if (error.error instanceof ErrorEvent) {
+      // Erro ocorreu no lado do client
+      errorMessage = error.error.message;
+    } else {
+      // Erro ocorreu no lado do servidor
+      errorMessage = `Código do erro: ${error.status}, ` + `menssagem: ${error.message}`;
+    }
+    console.log(errorMessage);
+    return throwError(errorMessage);
+  };
+}

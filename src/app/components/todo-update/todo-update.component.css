@@ -1,0 +1,10 @@
+.titleDiv{
+  display: flex;
+  justify-content: center;
+  height: 80px;
+
+}
+.titleDiv h1 {
+  font-family: "Comic Sans MS", "Comic Sans", cursive;
+  font-size: 1.7em;
+}

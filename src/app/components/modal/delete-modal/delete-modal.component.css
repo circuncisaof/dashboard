@@ -1,0 +1,72 @@
+.modal {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px #333;
+  min-width: 500px;
+  min-height: 500px;
+  position: fixed;
+  left: 50%;
+  padding: 24px;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 11;
+}
+
+.overlay {
+  background: #000;
+  height: 100vh;
+  left: 0;
+  opacity: 0.5;
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  z-index: 10;
+}
+
+.bttnClose {
+  height: 30px;
+  display: flex;
+  justify-content: end;
+}
+.bttnClose button {
+  background-color:#F0553F;
+  font-weight: .625rem;
+}
+.titleDiv{
+  background-color:#333;
+  display: flex;
+  justify-content: center;
+  height: 80px;
+
+}
+.titleDiv h2 {
+  font-family: "Comic Sans MS", "Comic Sans", cursive;
+  font-size: 1.7em;
+}
+.Bttns{
+  display: flex;
+  justify-content: center;
+  height: 70px;
+}
+
+.bttn {
+  margin: 45px 30px 20px 2px;
+
+  width: 100%;
+  height: 50px;
+}
+
+.bttn button {
+  width: 100%;
+  text-decoration: none;
+  position: relative;
+  background-color: #F0EBE9;
+  padding: 0.8rem 4rem;
+  border: none;
+  border-radius: 3px;
+  outline: none;
+  overflow: hidden;
+  cursor: pointer;
+  font-size: 1.5em;
+  font-family: "Comic Sans MS", "Comic Sans", cursive;
+}

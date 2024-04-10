@@ -4,12 +4,21 @@
 .footer {
   background-color: #3ADC77;
   width: 100%;
-  margin: 30px 20px 20px 20px;
+  height: 90px;
+  margin: 30px 1px 20px 1px;
 }
-
-.footer h1{
+.footerLtda {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  margin: 20px 20px 20px 20px;
+}
+.footerLtda p{
   display: inline;
+  margin: 5px 1px 20px 1px;
+  padding: 10px 10px 10px 10px;
   font-family: "Comic Sans MS", "Comic Sans", cursive;
-  color: #3ADC77;;
+  font-size:1.4em;
+  color: #F0EBE9;
 
  }

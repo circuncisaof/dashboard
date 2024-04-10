@@ -1,0 +1,23 @@
+<ng-container *ngIf="seeModa">
+  <div class="modal">
+    <div class="bttnClose">
+    <button (click)="toggle()">X</button>
+  </div>
+    <ng-content></ng-content>
+    <div class="titleDiv">
+      <input type="checkbox"[(ngModel)]="todos.checked">
+    </div>
+    <div class="titleDiv">
+      <input type="text"[(ngModel)]="todos.todo">
+    </div>
+    <div class="Bttns">
+      <div class="bttn">
+        <button (click)="updateId(todos.id)">Update</button>
+      </div>
+      <div class="bttn">
+        <button (click)="toggle()">Cancel</button>
+      </div>
+    </div>
+  </div>
+  <div (click)="toggle()" class="overlay"></div>
+</ng-container>

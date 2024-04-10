@@ -9,4 +9,5 @@ import { TodoComponent } from './components/todos/todo/todo.component';
 })
 export class AppComponent {
   title = 'dashboard';
+  error = 'Nao existe Todo!'
 }
