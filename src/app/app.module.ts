@@ -18,6 +18,7 @@ import { TodoComponent } from './components/todos/todo/todo.component';
 import { MessageGratComponent } from './components/message-grat/message-grat.component';
 import { TodoDeleteComponent } from './components/todo-delete/todo-delete.component';
 import { TodoUpdateComponent } from './components/todo-update/todo-update.component';
+import { ErrorMessageComponent } from './components/error-message/error-message.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { TodoUpdateComponent } from './components/todo-update/todo-update.compon
     MessageGratComponent,
     TodoDeleteComponent,
     TodoUpdateComponent,
+    ErrorMessageComponent,
 
   ],
   imports: [

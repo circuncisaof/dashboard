@@ -11,28 +11,34 @@ import { ApiService } from 'src/app/services/services';
 export class ListTodosComponent implements OnInit {
   todo = {} as ITodo;
   todos: ITodo[] = [];
+  load:boolean = false;
+  msg:string = ''
   error: string ='';
+  checked:boolean = false;
   hasTodos: boolean = false;
   reloadData: Observable<number> = timer(100)
   constructor(private http:ApiService ){}
 
   ngOnInit(): void{
-    this.reloadData.subscribe(() =>{
-      this.http.reload.subscribe(()=>{
-        this.getAll();
-      });
-    })
     this.getAll();
   }
 
   getAll(): void{
-    this.http.getAll().subscribe({
-      next: (data) => {
-        this.todos = data;
-        console.log(data)
-      },
-      error: (e) => this.error= e
-    })
+    try {
+      this.http.getAll().subscribe({
+        next: (data) => {
+          console.log(data.length)
+          if(data.length === 0){
+            this.msg = 'Nao existe Todo'
+            console.log(this.msg)
+          }
+          this.todos = data;
+        },
+      })
+    } catch (error) {
+      console.log(error)
+    }
+
 
   }
 

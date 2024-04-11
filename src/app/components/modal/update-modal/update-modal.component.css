@@ -32,17 +32,8 @@
   background-color:#F0553F;
   font-weight: .625rem;
 }
-.titleDiv{
-  background-color:#333;
-  display: flex;
-  justify-content: center;
-  height: 80px;
 
-}
-.titleDiv h2 {
-  font-family: "Comic Sans MS", "Comic Sans", cursive;
-  font-size: 1.7em;
-}
+
 .Bttns{
   display: flex;
   justify-content: center;
@@ -69,4 +60,42 @@
   cursor: pointer;
   font-size: 1.5em;
   font-family: "Comic Sans MS", "Comic Sans", cursive;
+}
+
+.bttnCheck {
+  display: flex;
+  width: 50px;
+  height: 50px;
+  margin-top: 5px;
+  margin-right:1px;
+  margin-left: 1px;
+  text-align: justify;
+}
+.bttnCheck input[type=checkbox] {
+  width: 50px;
+  margin: 10px 1px 1px 1px;
+}
+
+.checkbox {
+  background-color: yellow;
+  height: 150px;
+  display: flex;
+  border-radius: 10px;
+  justify-content: center;
+  margin-top:10px ;
+  box-shadow: 5px 5px grey;
+  border: 5px red dotted;
+ }
+
+ .todo{
+  display: flex;
+  margin: 10px 10px 10px 10px;
+}
+.todo input {
+  width: 500px;
+  height: 30px;
+  margin: 10px 1px 1px 1px;
+  font-size: 20px;
+  border: 5px solid#3ADC77;
+  border-radius: 4px;
 }

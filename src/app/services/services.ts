@@ -24,10 +24,7 @@ export class ApiService
 
   getAll():Observable<ITodo[]>{
     const allTodo = this.http.get<ITodo[]>(this.url)
-    .pipe(tap
-      (()=>{
-        this._reload$.next()
-      }),
+    .pipe(
       retry(2),
       catchError(this.handleError)
 
@@ -37,7 +34,10 @@ export class ApiService
   }
 
   save(data:TodoI):Observable<ITodo>{
-    return this.http.post<ITodo>(this.url,data)
+    return this.http.post<ITodo>(this.url,data).pipe(
+      retry(1),
+      catchError(this.handleError)
+    )
   }
 
   update(id:string,todo: ITodo):Observable<ITodo>{

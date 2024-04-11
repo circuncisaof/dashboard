@@ -6,6 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./todo-delete.component.css']
 })
 export class TodoDeleteComponent {
-  title:string = 'Deseja Excluir esse Todo?';
+  title:string = 'Deseja Excluir esse Todo';
 
 }

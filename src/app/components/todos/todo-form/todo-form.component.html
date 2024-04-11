@@ -1,22 +1,36 @@
-<div class="bodyTodo" >
-  <div class="todo">
-    <h2>{{todo}}</h2>
-  </div>
-  <div class="bttns">
-    <div class="bttn">
-      <button (click)="modalupdate.updateToggleId(id)">Update</button>
+
+<div class="body">
+  <div class="bodyTodo" >
+    <div class="finalizado">
+      <p *ngIf="checked">Finalizado</p>
     </div>
-    <div class="bttn">
-      <button (click)="
-      modal.deletetoggleid(id)
-      ">Delete</button>
+     <div class="bttnCheck">
+      <input type="checkbox"[(ngModel)]="checked"  disabled checked/>
     </div>
+
+     <div class="todo">
+      <h2>{{todo}}</h2>
+    </div>
+    <div class="bttns">
+      <div class="bttn">
+        <button (click)="modalupdate.updateToggleId(id)" [disabled]="checked">Update</button>
+      </div>
+      <div class="bttn">
+        <button (click)="
+        modal.deletetoggleid(id)
+        ">Delete</button>
+      </div>
+    </div>
+
   </div>
 
-    <app-delete-modal #modal>
-      <app-todo-delete/>
-    </app-delete-modal>
-    <app-update-modal #modalupdate>
-      <app-todo-update/>
-    </app-update-modal>
+  <app-delete-modal #modal>
+    <app-todo-delete/>
+  </app-delete-modal>
+  <app-update-modal #modalupdate>
+    <app-todo-update/>
+  </app-update-modal>
+
 </div>
+
+

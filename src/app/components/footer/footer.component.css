@@ -1,5 +1,6 @@
 .footer{
   display: flex;
+  position: fixed;
  }
 .footer {
   background-color: #3ADC77;

@@ -13,10 +13,12 @@ import { ApiService } from 'src/app/services/services';
 export class TodoDesignerComponent implements OnInit {
   todo_title = 'Todo';
   data: TodoI ={
-    todo: ''
+    todo: '',
   }
   seeModa: boolean = false;
-  submitted = false;
+  submitted :boolean= false;
+  correct_msg = '';
+  msg_error = '';
 
   @Output() reload = new EventEmitter();
 
@@ -33,16 +35,30 @@ export class TodoDesignerComponent implements OnInit {
     const datas ={
       todo: this.data.todo
     }
-    this.http.save(datas).subscribe({
-      next: (res) => {
-        console.log(res);
-        this.submitted = true;
-      },
-      error: (e) => console.error(e)
-    })
 
-    console.log("salvei");
+    try {
+      console.log(datas.todo)
+      if(datas.todo == ""){
+        this.submitted= false;
+        this.msg_error = 'Nao pode ser vazio'
+      }else{
+        this.http.save(datas).subscribe({
+          next: (res) => {
+            console.log(res);
+            this.submitted = true;
+            this.correct_msg = 'Deu certo!'
 
-    this.reload.emit();
+          },
+
+        })
+      }
+
+    } catch (error:any) {
+      this.submitted= false;
+      this.msg_error = error
+      console.error(error)
+
+    }
+
   }
 }

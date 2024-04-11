@@ -1,5 +1,19 @@
+<div class="body">
+
+
 <div class="bodyListTodo">
-  <div class="divBody" *ngFor="let todo  of todos">
-    <app-todo-form [todo]="todo.todo" [id]="todo.id" (reload)="getAll()" />
+  <div class="bttn">
+    <button (click)="
+     getAll()
+      ">Reload</button>
   </div>
+  <div class="divBody" *ngFor="let todo  of todos">
+
+    <app-todo-form [todo]="todo.todo" [id]="todo.id" [checked]="todo.checked" />
+
+  </div>
+  <app-not-found  *ngIf="todos.length ===0" [error]="msg"></app-not-found>
+
+
+</div>
 </div>

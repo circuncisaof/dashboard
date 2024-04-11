@@ -6,5 +6,6 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./message-grat.component.css']
 })
 export class MessageGratComponent {
-  @Input() right:string = ''
+  @Input() right:string = '';
+  @Input() submitter:boolean= false;
 }
