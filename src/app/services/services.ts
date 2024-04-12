@@ -13,10 +13,6 @@ export class ApiService
   readonly url = 'http://localhost:3000/api/v1/todo'
   constructor(private http: HttpClient){}
 
-  private _reload$ = new Subject<void>()
-  get reload() {
-    return this._reload$;
-  }
 
   get(id:string):Observable<ITodo>{
     return this.http.get<ITodo>(`${this.url}/${id}`);
@@ -41,7 +37,6 @@ export class ApiService
   }
 
   update(id:string,todo: ITodo):Observable<ITodo>{
-    console.log(id, todo.todo)
     const data = this.http.patch<ITodo>(`${this.url}/${id}`, todo).pipe(
       retry(1),
       catchError(this.handleError)
