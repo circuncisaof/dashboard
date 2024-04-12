@@ -15,6 +15,11 @@
         <button (click)="toggle()">Cancel</button>
       </div>
     </div>
+    <div class="msg_corret">
+      <ng-container *ngIf="submitted === true" >
+        <app-message-grat [submitter]="submitted" [right]="mesg_correct"></app-message-grat>
+      </ng-container>
+    </div>
   </div>
   <div (click)="toggle()" class="overlay"></div>
 </ng-container>

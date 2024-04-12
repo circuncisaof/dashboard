@@ -12,6 +12,8 @@ export class DeleteModalComponent {
   id: '',
   todo: '',
 }
+submitted:boolean = false;
+mesg_correct:string = '';
   seeModa: boolean = false;
   toggle() {
     this.seeModa = !this.seeModa
@@ -20,12 +22,14 @@ export class DeleteModalComponent {
   constructor(private http:ApiService){}
 
   getId(id:string){
+    this.submitted = true;
+    this.mesg_correct = 'Deleted'
     this.http.get(id).subscribe({
       next:(data) => {
         this.todos.id = data.id;
         this.todos.todo = data.todo;
       },
-      error: (e) => console.error(e)
+      error: (e) => this.mesg_correct = e
     })
   }
 

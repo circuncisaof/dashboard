@@ -9,18 +9,24 @@
       <div class="bttnCheck">
         <input type="checkbox"[(ngModel)]="todos.checked"  >
       </div>
-      <input type="text"[(ngModel)]="todos.todo">
+      <input type="text"[(ngModel)]="todos.todo" (keypress)="verifyIfNull()">
     </div>
     <div class="Bttns">
       <div class="bttn">
-        <button (click)="updateId(todos.id)">Update</button>
+        <button (click)="updateId(todos.id)" [disabled]="blockBttn">Update</button>
       </div>
       <div class="bttn">
         <button (click)="toggle()">Cancel</button>
       </div>
     </div>
+    <div class="msg_corret">
+      <ng-container *ngIf="submitted === true" >
+        <app-message-grat [submitter]="submitted" [right]="mesg_correct"></app-message-grat>
+      </ng-container>
+    </div>
   </div>
+
   <div (click)="toggle()" class="overlay"></div>
-  <app-message-grat></app-message-grat>
+
   <app-error-message></app-error-message>
 </ng-container>

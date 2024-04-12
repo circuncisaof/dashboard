@@ -24,22 +24,15 @@ export class ListTodosComponent implements OnInit {
   }
 
   getAll(): void{
+    this.msg = 'Nao existe Todo / error no servidor'
     try {
       this.http.getAll().subscribe({
         next: (data) => {
-          console.log(data.length)
-          if(data.length === 0){
-            this.msg = 'Nao existe Todo'
-            console.log(this.msg)
-          }
           this.todos = data;
         },
       })
-    } catch (error) {
-      console.log(error)
+    } catch (error:any) {
+      this.msg = error;
     }
-
-
   }
-
 }

@@ -99,3 +99,7 @@
   border: 5px solid#3ADC77;
   border-radius: 4px;
 }
+
+.msg_corret {
+  margin: 40px 10px 10px 10px;
+}

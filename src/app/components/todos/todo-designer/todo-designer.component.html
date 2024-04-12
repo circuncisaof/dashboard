@@ -1,25 +1,21 @@
 <div class="bodyTodo">
-
   <div class="title">
     <h1>
       {{todo_title}}
     </h1>
   </div>
   <div class="todo">
-    <input type="text" [(ngModel)]="data.todo">
+    <input type="text" [(ngModel)]="data.todo" (keydown)="verifyIfNull()">
   </div>
   <div class="bttnDiv">
-    <button type="submit" (click)="save()" class="btn-primario">Salvar</button>
+    <button type="submit" (click)="save()" [disabled]="blockBttn" class="btn-primario">Salvar</button>
   </div>
-  <ng-template>
-    <app-message-grat [right]="correct_msg" *ngIf="submitted"></app-message-grat>
-  </ng-template>
-  <ng-component *ngIf="submitted">
-    <app-message-grat  *ngIf="submitted===true" [right]="correct_msg"></app-message-grat>
-  </ng-component>
-  <ng-component *ngIf="submitted ===false">
-    <app-error-message  [error]="msg_error"></app-error-message>
-  </ng-component>
 
+  <ng-container *ngIf="submitted== true">
+    <app-message-grat [right]="correct_msg" ></app-message-grat>
+  </ng-container>
 
+  <ng-container>
+    <app-error-message [error]="msg_error" ></app-error-message>
+  </ng-container>
 </div>

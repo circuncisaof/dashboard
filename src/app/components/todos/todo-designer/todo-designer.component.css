@@ -34,8 +34,7 @@
   display: flex;
   justify-content: center;
  }
-
- .bttnDiv button {
+.bttnDiv button {
   width: 200px;
   height: 40px;
   margin: 10px 10px 10px 10px;
@@ -45,4 +44,4 @@
   background-color: aliceblue;
   cursor: pointer;
   border: 1px solid #3ADC77;
- }
+}

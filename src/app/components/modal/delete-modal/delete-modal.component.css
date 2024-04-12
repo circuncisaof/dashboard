@@ -69,3 +69,8 @@
   font-size: 1.5em;
   font-family: "Comic Sans MS", "Comic Sans", cursive;
 }
+
+.msg_corret {
+  margin: 40px 10px 10px 10px;
+  padding: 40px 10px 10px 10px;
+}

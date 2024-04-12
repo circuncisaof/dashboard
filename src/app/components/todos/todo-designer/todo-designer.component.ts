@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { TodoI } from 'src/app/interface/TodoI';
 import { ApiService } from 'src/app/services/services';
 
@@ -19,17 +19,23 @@ export class TodoDesignerComponent implements OnInit {
   submitted :boolean= false;
   correct_msg = '';
   msg_error = '';
-
-  @Output() reload = new EventEmitter();
-
+  blockBttn = true;
 
   constructor(private http: ApiService) {}
 
-  ngOnInit() {
+  ngOnInit() {}
 
+  snackBarCorrect(correct_msg:string){
+    console.log(correct_msg)
+    this.submitted = true;
+    this.correct_msg = correct_msg
   }
 
-
+  verifyIfNull() {
+    if(this.data.todo != null || this.data.todo != ""){
+      this.blockBttn = false;
+    }
+  }
 
   save():void{
     const datas ={
@@ -37,28 +43,17 @@ export class TodoDesignerComponent implements OnInit {
     }
 
     try {
-      console.log(datas.todo)
-      if(datas.todo == ""){
-        this.submitted= false;
-        this.msg_error = 'Nao pode ser vazio'
-      }else{
-        this.http.save(datas).subscribe({
-          next: (res) => {
-            console.log(res);
-            this.submitted = true;
-            this.correct_msg = 'Deu certo!'
-
-          },
-
-        })
-      }
-
+      this.submitted = true;
+      this.correct_msg ='savou lek';
+      this.http.save(datas).subscribe({
+        next: (res) => {
+          return res
+        }
+      })
     } catch (error:any) {
       this.submitted= false;
       this.msg_error = error
       console.error(error)
-
     }
-
   }
 }
