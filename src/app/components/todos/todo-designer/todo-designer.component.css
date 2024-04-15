@@ -37,11 +37,19 @@
 .bttnDiv button {
   width: 200px;
   height: 40px;
-  margin: 10px 10px 10px 10px;
+  margin: 50px 10px 10px 10px;
   padding: 2px 2px 2px 2px;
   font-size: 20px;
   font-family: "Comic Sans MS", "Comic Sans", cursive;
   background-color: aliceblue;
   cursor: pointer;
   border: 1px solid #3ADC77;
+}
+
+.error{
+  width: 100%;
+  margin-top: 10px;
+  margin-left: 10px;
+  padding: 2px 2px 2px 2px;
+  color: tomato;
 }

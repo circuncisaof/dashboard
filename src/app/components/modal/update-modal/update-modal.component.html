@@ -9,11 +9,11 @@
       <div class="bttnCheck">
         <input type="checkbox"[(ngModel)]="todos.checked"  >
       </div>
-      <input type="text"[(ngModel)]="todos.todo" (keypress)="verifyIfNull()">
+      <input type="text"[(ngModel)]="todos.todo" >
     </div>
     <div class="Bttns">
       <div class="bttn">
-        <button (click)="updateId(todos.id)" [disabled]="blockBttn">Update</button>
+        <button (click)="updateId(todos.id)" >Update</button>
       </div>
       <div class="bttn">
         <button (click)="toggle()">Cancel</button>

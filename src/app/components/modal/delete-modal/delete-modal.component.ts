@@ -34,6 +34,7 @@ mesg_correct:string = '';
   }
 
   deleteId(id:string) {
+    this.submitted = true;
     this.http.delete(id).subscribe({
       next:(res) =>{
         console.log(res)

@@ -4,18 +4,26 @@
       {{todo_title}}
     </h1>
   </div>
-  <div class="todo">
-    <input type="text" [(ngModel)]="data.todo" (keydown)="verifyIfNull()">
-  </div>
-  <div class="bttnDiv">
-    <button type="submit" (click)="save()" [disabled]="blockBttn" class="btn-primario">Salvar</button>
-  </div>
+  <form (ngSubmit)="save()" [formGroup]="formGroup" #formDir="ngForm">
+    <div class="todo">
+      <input type="text"   formControlName="todo" required>
+    </div>
+    <div class="error" *ngIf="todo.invalid && formDir.onSubmit">
+      <p *ngIf="todo.errors?.['required']"
+      >*Nao pode ser nulo</p>
+    </div>
+    <div class="bttnDiv">
+      <button type="submit">Salve</button>
+    </div>
+  </form>
 
   <ng-container *ngIf="submitted== true">
     <app-message-grat [right]="correct_msg" ></app-message-grat>
   </ng-container>
 
-  <ng-container>
-    <app-error-message [error]="msg_error" ></app-error-message>
-  </ng-container>
+
+
+
+
+
 </div>
