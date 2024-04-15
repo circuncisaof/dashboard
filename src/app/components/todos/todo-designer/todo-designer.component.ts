@@ -32,12 +32,13 @@ export class TodoDesignerComponent implements OnInit {
   }
 
   verifyIfNull() {
-    if(this.data.todo != null || this.data.todo != ""){
+    if(this.data.todo === null && this.data.todo === ""){
       this.blockBttn = false;
     }
   }
 
   save():void{
+    this.verifyIfNull()
     const datas ={
       todo: this.data.todo
     }
