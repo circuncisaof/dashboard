@@ -22,8 +22,7 @@ mesg_correct:string = '';
   constructor(private http:ApiService){}
 
   getId(id:string){
-    this.submitted = true;
-    this.mesg_correct = 'Deleted'
+   
     this.http.get(id).subscribe({
       next:(data) => {
         this.todos.id = data.id;
@@ -35,6 +34,7 @@ mesg_correct:string = '';
 
   deleteId(id:string) {
     this.submitted = true;
+    this.mesg_correct = 'Deu certo';
     this.http.delete(id).subscribe({
       next:(res) =>{
         console.log(res)

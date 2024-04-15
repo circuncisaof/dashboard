@@ -1,8 +1,8 @@
 <ng-container *ngIf="seeModa">
   <div class="modal">
     <div class="bttnClose">
-    <button (click)="toggle()">X</button>
-  </div>
+      <button (click)="toggle()">X</button>
+    </div>
     <ng-content></ng-content>
     <div class="titleDiv">
       <h2>{{todos.todo}}?</h2>
@@ -16,10 +16,11 @@
       </div>
     </div>
     <div class="msg_corret">
-      <ng-container *ngIf="submitted === true" >
+      <ng-container *ngIf="submitted === true">
         <app-message-grat [submitter]="submitted" [right]="mesg_correct"></app-message-grat>
       </ng-container>
     </div>
   </div>
+
   <div (click)="toggle()" class="overlay"></div>
 </ng-container>
